@@ -1,0 +1,191 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/background3.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 3em;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #8A2BE2 0%,	#87CEFA 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+@keyframes rotate {
+    50%   {transform: rotateY(360deg);}
+    100%  {transform: rotateY(360deg);}
+}
+
+.deck .card.open {
+    background: #02ccba;
+    cursor: default;
+    animation-name: rotate;
+    animation-duration: 1.5s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+@keyframes popUp {
+    0%   {height: 135px; width: 135px;}
+    25%  {height: 150px; width: 150px;}
+    50%  {height: 135px; width: 135px;}
+    100% {height: 125px; width: 125px;}
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #4169E1;
+    font-size: 33px;
+    animation-name: popUp;
+    animation-duration: 1s;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    padding-right: 20px;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .timer {
+  padding-left: 20px;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+/*
+ * Styles for the Modal
+ */
+
+.modal_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 130%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.438);
+}
+
+.modal_body {
+  position: relative;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -70%
+  )
+}
+
+.modal_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid gray;
+}
+
+.modal_heading .modal_close {
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal_stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid gray;
+}
+
+.modal_buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.modal_button {
+  width: 60px;
+  height: 30px;
+}
+
+.invisible {
+  display: none;
+}
